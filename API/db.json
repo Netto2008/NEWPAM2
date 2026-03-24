@@ -11,13 +11,13 @@
           "id": 1,
           "nome": "Leonardo DiCaprio",
           "personagem": "Jack Dawson",
-          "imagem": "https://upload.wikimedia.org/wikipedia/commons/4/46/Leonardo_DiCaprio_2014.jpg"
+          "imagem": "https://m.media-amazon.com/images/M/MV5BMjI0MTg3MzI0M15BMl5BanBnXkFtZTcwMzQyODU2Mw@@._V1_FMjpg_UX1000_.jpg"
         },
         {
           "id": 2,
           "nome": "Kate Winslet",
           "personagem": "Rose DeWitt Bukater",
-          "imagem": "https://upload.wikimedia.org/wikipedia/commons/1/1c/Kate_Winslet_2018.jpg"
+          "imagem": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Kate_Winslet_2024_The_Regime_premiere_01_%28cropped2%29.png/960px-Kate_Winslet_2024_The_Regime_premiere_01_%28cropped2%29.png"
         }
       ]
     },
@@ -84,5 +84,12 @@
         }
       ]
     }
-  ]
+  ]   
+
+
+
+
+
 }
+
+
