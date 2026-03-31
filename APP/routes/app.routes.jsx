@@ -11,7 +11,7 @@ const Stack = createNativeStackNavigator();
 export default function AppRoutes() {
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName={ROUTES.MOVIE_LIST}>
+      <Stack.Navigator initialRouteName={ROUTES.MOVIE_LIST} screenOptions={{ headerStyle: { backgroundColor: "#000" }, headerTintColor: "#fff" }}>
         
         <Stack.Screen
           name={ROUTES.MOVIE_LIST}

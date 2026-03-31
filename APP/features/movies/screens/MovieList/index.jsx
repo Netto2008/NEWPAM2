@@ -1,24 +1,55 @@
 import React from "react";
-import { View, FlatList, Text } from "react-native";
+import { View, FlatList, Text, ActivityIndicator, TouchableOpacity } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import { useMovies } from "../../hooks/useMovies";
 import MovieCard from "../../components/MovieCard";
 import { ROUTES } from "../../../../constants/routes";
+import { styles } from "./styles";
 
 export default function MovieList() {
-  const { movies, loading } = useMovies();
+  const { movies, loading, error } = useMovies();
   const navigation = useNavigation();
 
-  if (loading) { return <Text>Carregando...</Text>;}
+  // ── Loading ────────────────────────────────────────────────────────────────
+  if (loading) {
+    return (
+      <View style={styles.centered}>
+        <ActivityIndicator size="large" color={styles.loader.color} />
+        <Text style={[styles.stateText, { marginTop: 16 }]}>Carregando...</Text>
+      </View>
+    );
+  }
 
+  // ── Erro ───────────────────────────────────────────────────────────────────
+  if (error) {
+    return (
+      <View style={styles.centered}>
+        <Text style={styles.stateText}>Erro ao carregar filmes</Text>
+        <Text style={styles.stateSubText}>Verifique o backend e a API_URL</Text>
+      </View>
+    );
+  }
+
+  // ── Lista vazia ────────────────────────────────────────────────────────────
+  if (!movies?.length) {
+    return (
+      <View style={styles.centered}>
+        <Text style={styles.stateText}>Nenhum filme encontrado</Text>
+        <Text style={styles.stateSubText}>Tente novamente mais tarde</Text>
+      </View>
+    );
+  }
+
+  // ── Lista de filmes ────────────────────────────────────────────────────────
   return (
-    <View style={{ padding: 16, flex: 1 }}>
+    <View style={styles.container}>
       <FlatList
-        style={{ flex: 1 }}
+        style={styles.list}
         data={movies}
         keyExtractor={(item) => item.id.toString()}
         numColumns={2}
-        columnWrapperStyle={{ justifyContent: "space-around" }}
+        columnWrapperStyle={styles.columnWrapper}
+        showsVerticalScrollIndicator={false}
         renderItem={({ item }) => (
           <MovieCard
             movie={item}
@@ -27,7 +58,7 @@ export default function MovieList() {
                 movie: item,
               })
             }
-            width={"45vw"}
+            width={"45%"}
           />
         )}
       />
@@ -36,8 +67,12 @@ export default function MovieList() {
 }
 
 /*
-A tela MovieList é responsável por exibir a lista de filmes. Ela utiliza o hook useMovies para obter os dados dos filmes e o estado de carregamento. 
-Se os dados ainda estiverem sendo carregados, ela exibe uma mensagem de "Carregando...". 
-Caso contrário, ela renderiza uma FlatList com os filmes, utilizando o componente MovieCard para exibir cada filme individualmente. 
-Quando um usuário toca em um card de filme, a função onPress é chamada, navegando para a tela de detalhes do filme (ROUTES.MOVIE_DETAILS) e passando as informações do filme selecionado como parâmetro.
+A tela MovieList exibe a lista de filmes com tema visual Netflix (fundo preto + neon vermelho).
+Os estilos inline foram substituídos pelos tokens centralizados em styles.js:
+  - styles.centered    → estados de loading, erro e lista vazia
+  - styles.stateText   → texto principal neon vermelho com glow
+  - styles.stateSubText→ texto secundário apagado
+  - styles.container   → wrapper principal da lista
+  - styles.list        → FlatList
+  - styles.columnWrapper → espaçamento entre colunas
 */

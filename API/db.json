@@ -32,13 +32,13 @@
           "id": 1,
           "nome": "Christian Bale",
           "personagem": "Bruce Wayne / Batman",
-          "imagem": "https://upload.wikimedia.org/wikipedia/commons/0/0a/Christian_Bale-7834.jpg"
+          "imagem": "https://br.web.img3.acsta.net/pictures/15/02/24/18/43/126776.jpg"
         },
         {
           "id": 2,
           "nome": "Heath Ledger",
           "personagem": "Coringa",
-          "imagem": "https://upload.wikimedia.org/wikipedia/commons/7/75/Heath_Ledger.jpg"
+          "imagem": "https://rollingstone.com.br/wp-content/uploads/heath-leadger-deauville-festival-of-american-cinema-2001_getty_images_anthony_harvey.jpg"
         }
       ]
     },
@@ -53,13 +53,13 @@
           "id": 1,
           "nome": "Robert Downey Jr.",
           "personagem": "Tony Stark / Homem de Ferro",
-          "imagem": "https://upload.wikimedia.org/wikipedia/commons/5/5f/Robert_Downey_Jr_2014_Comic_Con.jpg"
+          "imagem": "https://image.tmdb.org/t/p/w235_and_h235_face/5qHNjhtjMD4YWH3UP0rm4tKwxCL.jpg"
         },
         {
           "id": 2,
           "nome": "Chris Evans",
           "personagem": "Steve Rogers / Capitão América",
-          "imagem": "https://upload.wikimedia.org/wikipedia/commons/8/8d/Chris_Evans_SDCC_2014.jpg"
+          "imagem": "https://m.media-amazon.com/images/M/MV5BNzQ0YWM1ODEtZDFkYy00MGJhLTkwZDUtMzVkZjljODU3ZTRmXkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg"
         }
       ]
     },
@@ -74,13 +74,13 @@
           "id": 1,
           "nome": "Leonardo DiCaprio",
           "personagem": "Dom Cobb",
-          "imagem": "https://upload.wikimedia.org/wikipedia/commons/4/46/Leonardo_DiCaprio_2014.jpg"
+          "imagem": "https://m.media-amazon.com/images/M/MV5BMjI0MTg3MzI0M15BMl5BanBnXkFtZTcwMzQyODU2Mw@@._V1_FMjpg_UX1000_.jpg"
         },
         {
           "id": 2,
           "nome": "Joseph Gordon-Levitt",
           "personagem": "Arthur",
-          "imagem": "https://upload.wikimedia.org/wikipedia/commons/3/3c/Joseph_Gordon-Levitt_SDCC_2012.jpg"
+          "imagem": "https://thumbs.dreamstime.com/b/joseph-gordon-levitt-20484292.jpg"
         }
       ]
     }

@@ -3,9 +3,11 @@ import { View, Text, Image, TouchableOpacity } from "react-native";
 import styles from "./styles";
 
 export default function MovieCard({ movie, onPress, width }) {
+  const cardWidth = typeof width === "number" ? width : 170;
+
   return (
     <TouchableOpacity onPress={onPress}>
-      <View style={[styles.container, { width: width }]}>        
+      <View style={[styles.container, { width: cardWidth }]}>        
         <Image
           source={{ uri: movie.img_capa }}
           style={styles.image}

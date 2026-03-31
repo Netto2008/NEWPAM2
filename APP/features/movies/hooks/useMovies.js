@@ -4,13 +4,16 @@ import { getMovies } from "../services/movieService";
 export const useMovies = () => {
   const [movies, setMovies] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
   const fetchMovies = async () => {
     try {
+      setError(null);
       const data = await getMovies();
       setMovies(data);
     } catch (error) {
       console.log("Erro ao buscar filmes:", error);
+      setError(error);
     } finally {
       setLoading(false);
     }

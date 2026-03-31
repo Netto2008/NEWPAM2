@@ -2,6 +2,7 @@ import React from "react";
 import { View, Text, Image, ScrollView, TouchableOpacity } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import { ROUTES } from "../../../../constants/routes";
+import styles from "./styles";
 
 export default function MovieDetails({ route }) {
   const movie = route?.params?.movie;
@@ -9,27 +10,27 @@ export default function MovieDetails({ route }) {
 
   if (!movie) {
     return (
-      <View style={{ flex: 1, justifyContent: "center", alignItems: "center", padding: 16 }}>
-        <Text>Nenhum filme selecionado.</Text>
+      <View style={styles.notFoundContainer}>
+        <Text style={styles.notFoundText}>Nenhum filme selecionado.</Text>
       </View>
     );
   }
 
   return (
-    <ScrollView style={{ flex: 1, padding: 16 }}>
+    <ScrollView style={styles.scrollView}>
       <Image
         source={{ uri: movie.img_capa }}
-        style={{ width: "100%", height: 240, borderRadius: 8, marginBottom: 16 }}
+        style={styles.image}
         resizeMode="cover"
       />
 
-      <Text style={{ fontSize: 24, fontWeight: "bold", marginBottom: 8 }}>{movie.nome}</Text>
-      <Text style={{ color: "#666", marginBottom: 10 }}>Ano: {movie.ano}</Text>
+      <Text style={styles.title}>{movie.nome}</Text>
+      <Text style={styles.year}>Ano: {movie.ano}</Text>
 
-      <Text style={{ fontSize: 18, fontWeight: "600", marginBottom: 6 }}>Sinopse</Text>
-      <Text style={{ marginBottom: 14 }}>{movie.sinopse || "Sem sinopse disponível."}</Text>
+      <Text style={styles.sectionTitle}>Sinopse</Text>
+      <Text style={styles.synopsis}>{movie.sinopse || "Sem sinopse disponível."}</Text>
 
-      <Text style={{ fontSize: 18, fontWeight: "600", marginBottom: 8 }}>Elenco</Text>
+      <Text style={styles.sectionTitle}>Elenco</Text>
       {movie.elenco?.length ? (
         movie.elenco.map((actor) => (
           <TouchableOpacity
@@ -39,21 +40,21 @@ export default function MovieDetails({ route }) {
                 actor,
               })
             }
-            style={{ marginBottom: 16, flexDirection: "row", alignItems: "center" }}
+            style={styles.actorContainer}
           >
             <Image
               source={{ uri: actor.imagem }}
-              style={{ width: 64, height: 64, borderRadius: 32, marginRight: 12 }}
+              style={styles.actorImage}
               resizeMode="cover"
             />
             <View>
-              <Text style={{ fontWeight: "bold" }}>{actor.nome}</Text>
-              <Text style={{ color: "#666" }}>{actor.personagem}</Text>
+              <Text style={styles.actorName}>{actor.nome}</Text>
+              <Text style={styles.actorCharacter}>{actor.personagem}</Text>
             </View>
           </TouchableOpacity>
         ))
       ) : (
-        <Text>Informações de elenco não disponíveis.</Text>
+        <Text style={styles.noCastText}>Informações de elenco não disponíveis.</Text>
       )}
     </ScrollView>
   );
