@@ -11,15 +11,15 @@ export default function ActorCard({ actor, onPress }) {
         <View style={styles.accentBar} />
 
         <Image
-          source={{ uri: actor.imagem }}
+          source={{ uri: actor.profileUrl }}
           style={styles.image}
         />
 
-        <Text style={styles.name} numberOfLines={2}>
-          {actor.nome}
+        <Text numberOfLines={1} style={styles.nome}>
+          {actor.name}
         </Text>
 
-        <Text style={styles.character} numberOfLines={2}>
+        <Text numberOfLines={1} style={styles.personagem}>
           {actor.personagem}
         </Text>
 

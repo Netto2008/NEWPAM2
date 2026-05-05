@@ -1,11 +1,17 @@
 import { api } from "../../../services/api";
 
-export const getMovies = async () => {
-  const response = await api.get("/movie/popular",{
-      params: {
-        language: "pt-BR",
-        page: 1,
-      },
+export async function getPopularMovies() {}
+  
+export const getElencoMovie = async (movieId) => {
+  const response = await api.get(`/movies/${movieId}/credit`,{
+    params: {
+      language: "pt-BR"
+    },
   });
-  return response.data.results;
+  return response.data.cast.map((actor) => ({
+    id: actor.id,
+    name: actor.name,
+    personagem: actor.character,
+    profileUrl: `https://image.tmdb.org/t/p/w500${actor.profile_path}`,
+  }));
 };
